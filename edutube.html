@@ -56,8 +56,8 @@
                 background-color: #555;
             }
         </style>
-        <div class="md:w-2/4 lg:w-1/4  h-screen pb-1 overflow-y-scroll bg-white  smooth-scroll">
-            <h2 class="text-lg text-center md:w-2/4 lg:w-1/4 text-white absolute font-semibold  py-3 bg-black" id="playlist-name"></h2>
+        <div id="side_bar" class=" md:w-2/4 lg:w-1/4  h-screen pb-1 overflow-y-scroll bg-white  smooth-scroll">
+            <h2 class="text-lg text-center md:w-2/4 lg:w-1/4 absolute text-white  font-semibold  py-3 bg-black" id="playlist-name"></h2>
             
             <!-- Progress bar -->
             <div class="md:w-2/4 mt-12 lg:w-1/4 absolute">
@@ -73,11 +73,11 @@
             </ul>
 
         </div>
-        
+        <!--  -->
         <!-- Buttons for Previous Video and Complete -->
-        <div class="lg:w-3/4 md:w-2/4 bg-gray-200 h-screen overflow-y-scroll">
-            <div class="mb-1 absolute lg:w-3/4 md:w-2/4 py-2 flex flex-row justify-end bg-black">
-                <a href="./dashboard1.html"><button class="py-1 px-3 border rounded-lg border-white hover:text-slate-700 me-4 text-white hover:bg-white">🏡 home</button></a>
+        <div id="maindiv" class="lg:w-3/4 md:w-2/4 bg-gray-200 h-screen overflow-y-scroll">
+            <div class="mb-1  py-2 flex flex-row justify-end bg-black">
+                <a href="./index.html"><button class="py-1 px-3 border rounded-lg border-white hover:text-slate-700 me-4 text-white hover:bg-white">🏡 home</button></a>
 
                 <button id="previous-video"
                     class="py-1 px-3 border rounded-lg border-white  me-4 text-white hover:bg-slate-900">< Previous
@@ -112,6 +112,7 @@
             playlistNameElement.textContent = playlistName;
         }
 
+        
             function fetchPlaylistVideos(playlistId) {
                 fetch(`https://www.googleapis.com/youtube/v3/playlists?key=${apiKey}&part=snippet&id=${playlistId}`)
                     .then(response => response.json())
@@ -159,8 +160,35 @@ listItem.appendChild(document.createTextNode(videoTitle)); // Set text content a
                         console.error('Error fetching playlist videos:', error);
                     });
             }
+            var sidebar = document.getElementById('side_bar');
     
-            function displayVideo(index) {
+    // Get the toggle button element
+    var toggleButton = document.getElementById('toggle');
+    var maindiv = document.getElementById('maindiv');
+    // Add a click event listener to the toggle button
+    function toggleSidebar() {
+  // Toggle the sidebar's visibility by adding or removing the 'hidden' class
+  sidebar.classList.toggle('hidden');
+  // Toggle the maindiv's width and background color
+  if (maindiv.style.width === '100vw') {
+    maindiv.style.width = '75%'; // Equivalent to lg:w-3/4
+maindiv.style.maxWidth = '100%'; // Equivalent to md:w-2/4
+maindiv.style.backgroundColor = '#E5E7EB'; // Equivalent to bg-gray-200
+maindiv.style.height = '100vh'; // Equivalent to h-screen
+maindiv.style.overflowY = 'scroll';
+    } else {
+        maindiv.style.width = '100vw';
+        maindiv.style.backgroundColor = '#E5E7EB';
+        maindiv.style.height = '100vh';
+        maindiv.style.overflowY = 'scroll';
+    }
+
+
+}
+
+// Add a click event listener to the toggle button, calling the toggleSidebar function
+toggleButton.addEventListener('click', toggleSidebar);
+    function displayVideo(index) {
                 currentVideoIndex = index;
                 const videoFrame = document.getElementById('video-frame');
                 videoFrame.src = `https://www.youtube.com/embed/${videoIds[index]}?modestbranding=1&rel=0&autoplay=1`;
