@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Playlist Viewer</title>
+    <link
+      rel="shortcut icon"
+      href="./public/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body class="">
+    <div class="flex w-screen overflow-hidden">
+      <div
+        id="side_bar"
+        class="sidebar_show"
+      >
+        <h2
+          class="text-lg text-center md:w-1/4 lg:w-1/4 absolute text-white font-semibold py-4 bg-black"
+          id="playlist-name"
+        ></h2>
+
+        <!-- Progress bar -->
+        <div class="md:w-1/4 mt-[3.25rem] lg:w-1/4 absolute">
+          <!-- <h2 class="text-xl font-semibold mb-2">Progress</h2> -->
+          <div
+            id="progress-bar"
+            class="text-lg text-center w-full  py-2 bg-gray-200 text-black font-semibold uppercase"
+          ></div>
+          <div id="progress-barbar" class="bg-black h-3 mx-auto rounded-sm"></div>
+        </div>
+
+        <!-- Sidebar to display video names -->
+        <ul id="video-list" class="space-y-2 mt-[7rem] px-1">
+          <!-- Video titles will be dynamically added here -->
+        </ul>
+      </div>
+      <!--  -->
+      <!-- Buttons for Previous Video and Complete -->
+      <div
+        id="maindiv"
+        class="lg:w-3/4 w-screen z-0 bg-white h-screen overflow-y-scroll"
+      >
+      <nav id="nav" class="mb-1 py-2  lg:w-3/4 w-screen  z-20 absolute flex flex-row md:justify-end justify-center bg-black">
+      <a href="./index.html">
+        <button
+          
+        class="nav-button"
+      >
+        🏡 Home
+      </button>
+      </a>
+      
+        <button
+          id="previous-video"
+          class="nav-button"
+        >
+          < Previous
+        </button>
+      
+        <button
+          id="complete1"
+          name="complete"
+          class="nav-button"
+        >
+          Complete >
+        </button>
+        <button
+        id="toggle1"
+        class="px-3 py-1 lg:inline-block hidden border border-white rounded bg-transparent mx-1 text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+      >
+      🧩
+    </button>
+ <!-- togle in small size -->
+    <button
+        id="offcanvas-toggle"
+        class="px-3 py-1 lg:hidden inline-block  border border-white rounded bg-transparent mx-1 text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+      >
+      🧩
+    </button>
+    
+      </nav>
+
+<!-- offcanvas start -->
+
+
+<div class="absolute hidden z-50" id="offcanvas">
+  <!-- Offcanvas menu -->
+  <div class="flex-none w-64 bg-white h-screen overflow-y-scroll">
+    <div
+    id="side_bar2"
+    class="text-black w-full"
+  >
+    <h2
+      class="text-lg text-center text-white font-semibold py-4 bg-black"
+      id="playlist-name2"
+    ></h2>
+
+    <!-- Progress bar -->
+    <div class="w-full">
+      <!-- <h2 class="text-xl font-semibold mb-2">Progress</h2> -->
+      <div
+        id="progress-bar2"
+        class="text-lg text-center w-full  py-2 bg-gray-200 text-black font-semibold uppercase"
+      ></div>
+      <div id="progress-barbar2" class="bg-black h-3 mx-auto rounded-sm"></div>
+    </div>
+
+    <!-- Sidebar to display video names -->
+    <ul id="video-list2" class="space-y-1 ">
+     <!-- Video titles will be dynamically added here -->
+    </ul>
+  </div>
+  </div>
+  
+  <!-- Overlay -->
+  <div class=" absolute z-40 bg-black opacity-60" id="offcanvas-overlay"></div>
+</div>
+<!-- offcanvas end -->
+
+      
+      <div class="responsive-iframe-wrapper md:w-[90%] z-0 p-4 mt-14">
+        <iframe
+          id="video-frame"
+          class="w-full"
+          frameborder="0"
+          sandbox="allow-scripts allow-same-origin allow-top-navigation"
+          allowfullscreen
+        ></iframe>
+      </div>
+        <div class="flex flex-row justify-center w-full py-2">
+          <button
+            id="complete2"
+            class="py-2 px-3 rounded-lg bg-black text-white hover:bg-gray-900"
+          >
+            Complete and Continue >
+          </button>
+        </div>
+      </div>
+    </div>
+    <style>
+         .responsive-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    /* Set your desired aspect ratio (16:9 in this example) */
+    padding-bottom: 56.25%; /* Percentage ratio (9 / 16 * 100) */
+    height: 0;
+  }
+
+  .responsive-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+        .nav-button {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #333; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
+    </style>
+   <script src="edutube.js"></script>
+   <script src="edutube2.js"></script>
+  </body>
+</html>

@@ -1,265 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouTube Playlist Viewer</title>
-    <link rel="shortcut icon" href="../public/logo-removebg-preview.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./public/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-</head>
+  </head>
 
-<body class="">
+  <body class="">
     <div class="flex w-screen overflow-hidden">
-        <style>
-            /* Custom scrollbar styles */
-            /* Webkit */
-            ::-webkit-scrollbar {
-                width: 12px;
-            }
-            
-            ::-webkit-scrollbar-track {
-                background: #000b2b;
-            }
-            
-            ::-webkit-scrollbar-thumb {
-                background: #888;
-            }
-            
-            ::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-            
-            /* Firefox */
-            * {
-                scrollbar-width: thin;
-                scrollbar-color: #888 #f1f1f1;
-            }
-            
-            *::-webkit-scrollbar {
-                width: 12px;
-            }
-            
-            *::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-            
-            *::-webkit-scrollbar-thumb {
-                background-color: #888;
-                border-radius: 6px;
-                border: 3px solid #f1f1f1;
-            }
-            
-            *::-webkit-scrollbar-thumb:hover {
-                background-color: #555;
-            }
-        </style>
-        <div id="side_bar" class=" md:w-2/4 lg:w-1/4  h-screen pb-1 overflow-y-scroll bg-white  smooth-scroll">
-            <h2 class="text-lg text-center md:w-2/4 lg:w-1/4 absolute text-white  font-semibold  py-3 bg-black" id="playlist-name"></h2>
-            
-            <!-- Progress bar -->
-            <div class="md:w-2/4 mt-12 lg:w-1/4 absolute">
-                <!-- <h2 class="text-xl font-semibold mb-2">Progress</h2> -->
-                <div id="progress-bar" class="text-lg  text-center w-full py-2 bg-gray-200 text-black font-semibold uppercase"></div>
-                <div id="progress-barbar"  class="mx-2   bg-black h-3 rounded-sm"></div>
-                
-            </div>
+      <style>
+        /* Custom scrollbar styles */
+        /* Webkit */
+        ::-webkit-scrollbar {
+          width: 12px;
+        }
 
-            <!-- Sidebar to display video names -->
-            <ul id="video-list" class="space-y-2 mt-32 px-1">
-                <!-- Video titles will be dynamically added here -->
-            </ul>
+        ::-webkit-scrollbar-track {
+          background: #000b2b;
+        }
 
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
+        /* Firefox */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: #888 #f1f1f1;
+        }
+
+        *::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        *::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        *::-webkit-scrollbar-thumb {
+          background-color: #888;
+          border-radius: 6px;
+          border: 3px solid #f1f1f1;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+          background-color: #555;
+        }
+      </style>
+      <div
+        id="side_bar"
+        class="md:w-2/4 lg:w-1/4 h-screen pb-1 overflow-y-scroll bg-white smooth-scroll"
+      >
+        <h2
+          class="text-lg text-center md:w-2/4 lg:w-1/4 absolute text-white font-semibold py-3 bg-black"
+          id="playlist-name"
+        ></h2>
+
+        <!-- Progress bar -->
+        <div class="md:w-2/4 mt-12 lg:w-1/4 absolute">
+          <!-- <h2 class="text-xl font-semibold mb-2">Progress</h2> -->
+          <div
+            id="progress-bar"
+            class="text-lg text-center w-full py-2 bg-gray-200 text-black font-semibold uppercase"
+          ></div>
+          <div id="progress-barbar" class="mx-2 bg-black h-3 rounded-sm"></div>
         </div>
-        <!--  -->
-        <!-- Buttons for Previous Video and Complete -->
-        <div id="maindiv" class="lg:w-3/4 md:w-2/4 bg-gray-200 h-screen overflow-y-scroll">
-            <div class="mb-1  py-2 flex flex-row justify-end bg-black">
-                <a href="./index.html"><button class="py-1 px-3 border rounded-lg border-white hover:text-slate-700 me-4 text-white hover:bg-white">🏡 home</button></a>
 
-                <button id="previous-video"
-                    class="py-1 px-3 border rounded-lg border-white  me-4 text-white hover:bg-slate-900">< Previous
-                    Lesson</button>
-                <button id="complete"
-                    class="py-1 px-3 border rounded-lg border-white  me-4 text-white hover:bg-slate-900">Complete and Continue ></button>
-                <button id="toggle"
-                    class="py-1 px-3 border rounded-lg border-white  me-4 text-white hover:bg-slate-900">Toggle Sidebar</button>
-            </div>
-            <div class="w-full p-4 mt-14">
-                <!-- Video display area -->
-                <iframe id="video-frame" height="600" class="w-full" frameborder="0" sandbox=" allow-scripts  allow-same-origin allow-top-navigation" allowfullscreen></iframe>
-            </div>
-            <div class="flex flex-row justify-center w-full py-2">
-                <button id="complete"
-                    class="py-2 px-3 rounded-lg bg-black text-white hover:bg-gray-900">Complete and Continue ></button>
-            </div>
+        <!-- Sidebar to display video names -->
+        <ul id="video-list" class="space-y-2 mt-24 px-1">
+          <!-- Video titles will be dynamically added here -->
+        </ul>
+      </div>
+      <!--  -->
+      <!-- Buttons for Previous Video and Complete -->
+      <div
+        id="maindiv"
+        class="lg:w-3/4 md:w-2/4 bg-gray-200 h-screen overflow-y-scroll"
+      >
+        <div class="mb-1 py-2 flex flex-row justify-end bg-black">
+          <button onclick="goToPreviousPage();"
+              class="py-1 px-3 border rounded-lg border-white hover:text-slate-700 me-4 text-white hover:bg-white"
+            >
+              🏡 home
+            </button>
+
+          <button
+            id="previous-video"
+            class="py-1 px-3 border rounded-lg border-white me-4 text-white hover:bg-slate-900"
+          >
+            < Previous Lesson
+          </button>
+          <button
+            id="complete"
+            class="py-1 px-3 border rounded-lg border-white me-4 text-white hover:bg-slate-900"
+          >
+            Complete and Continue >
+          </button>
+          <button
+            id="toggle"
+            class="py-1 px-3 border rounded-lg border-white me-4 text-white hover:bg-slate-900"
+          >
+            Toggle Sidebar
+          </button>
         </div>
+        <div class="w-full p-4 mt-2">
+          <!-- Video display area -->
+          <iframe
+            id="video-frame"
+            height="600"
+            class="w-full"
+            frameborder="0"
+            sandbox=" allow-scripts  allow-same-origin allow-top-navigation"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="flex flex-row justify-center w-full py-2">
+          <button
+            id="complete"
+            class="py-2 px-3 rounded-lg bg-black text-white hover:bg-gray-900"
+          >
+            Complete and Continue >
+          </button>
+        </div>
+      </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace with your YouTube Data API key
-            const apiKey = 'AIzaSyC0YAOT-zZHaP5gAXJSdII3p3i26aGcO78';
-    
-            let totalVideos = 0;
-            let completedVideos = 0;
-            let currentVideoIndex = 0;
-            let videoIds = [];
+         function goToPreviousPage() {
+            if (window.history.length > 1) {
+        // If there is a history, go back to the previous page
+        window.history.back();
+    } else {
+        // If there is no history, redirect to index.html
+        window.location.href = "index.html";
+    }
+}
+      document.addEventListener("DOMContentLoaded", function () {
+        // Replace with your YouTube Data API key
+        const apiKey = "AIzaSyC0YAOT-zZHaP5gAXJSdII3p3i26aGcO78";
 
-            function updatePlaylistName(playlistName) {
-            const playlistNameElement = document.getElementById('playlist-name');
-            playlistNameElement.textContent = playlistName;
+        let totalVideos = 0;
+        let completedVideos = 0;
+        let currentVideoIndex = 0;
+        let videoIds = [];
+
+        function updatePlaylistName(playlistName) {
+          const playlistNameElement = document.getElementById("playlist-name");
+          playlistNameElement.textContent = playlistName;
         }
 
-        
-            function fetchPlaylistVideos(playlistId) {
-                fetch(`https://www.googleapis.com/youtube/v3/playlists?key=${apiKey}&part=snippet&id=${playlistId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.items && data.items.length > 0) {
-                          let  playlistName = data.items[0].snippet.title;
-                            updatePlaylistName(playlistName);
-                        }});
-                fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${apiKey}&playlistId=${playlistId}&part=snippet&maxResults=50`)
-                    .then(response => response.json())
-                    .then(data => {
-                        totalVideos = data.items.length;
-                        updateProgressBar();
-                        const videoList = document.getElementById('video-list');
-                        videoList.innerHTML = '';
-    
-                        videoIds = data.items.map(item => item.snippet.resourceId.videoId);
-    
-                        data.items.forEach(item => {
-                            const videoTitle = item.snippet.title;
-                            const listItem = document.createElement('li');
-                            const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.id = item.snippet.resourceId.videoId;
-                    checkbox.classList.add('mr-2');
-                    checkbox.disabled = true; 
-                    listItem.appendChild(checkbox); // Append checkbox before setting text content
-listItem.appendChild(document.createTextNode(videoTitle)); // Set text content after appending checkbox
-
-
-                            listItem.classList.add('cursor-pointer', 'text-black','hover:bg-gray-400', 'text-md', 'border', 'py-2', 'px-1', 'bg-slate-100', 'border-slate-200');
-                            listItem.addEventListener('click', () => {
-                                const index = data.items.findIndex(i => i.snippet.title === videoTitle);
-                                displayVideo(index);
-                            });
-                            videoList.appendChild(listItem);
-                        });
-    
-                        // Automatically play the first video after loading the playlist
-                        if (totalVideos > 0) {
-                            displayVideo(0);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching playlist videos:', error);
-                    });
-            }
-            var sidebar = document.getElementById('side_bar');
-    
-    // Get the toggle button element
-    var toggleButton = document.getElementById('toggle');
-    var maindiv = document.getElementById('maindiv');
-    // Add a click event listener to the toggle button
-    function toggleSidebar() {
-  // Toggle the sidebar's visibility by adding or removing the 'hidden' class
-  sidebar.classList.toggle('hidden');
-  // Toggle the maindiv's width and background color
-  if (maindiv.style.width === '100vw') {
-    maindiv.style.width = '75%'; // Equivalent to lg:w-3/4
-maindiv.style.maxWidth = '100%'; // Equivalent to md:w-2/4
-maindiv.style.backgroundColor = '#E5E7EB'; // Equivalent to bg-gray-200
-maindiv.style.height = '100vh'; // Equivalent to h-screen
-maindiv.style.overflowY = 'scroll';
+        function goToPreviousPage() {
+            if (window.history.length > 1) {
+        // If there is a history, go back to the previous page
+        window.history.back();
     } else {
-        maindiv.style.width = '100vw';
-        maindiv.style.backgroundColor = '#E5E7EB';
-        maindiv.style.height = '100vh';
-        maindiv.style.overflowY = 'scroll';
+        // If there is no history, redirect to index.html
+        window.location.href = "index.html";
     }
-
-
 }
 
-// Add a click event listener to the toggle button, calling the toggleSidebar function
-toggleButton.addEventListener('click', toggleSidebar);
-    function displayVideo(index) {
-                currentVideoIndex = index;
-                const videoFrame = document.getElementById('video-frame');
-                videoFrame.src = `https://www.youtube.com/embed/${videoIds[index]}?modestbranding=1&rel=0&autoplay=1`;
-            }
-    
-            // Previous Video button functionality
-            const previousVideoButton = document.getElementById('previous-video');
-            previousVideoButton.addEventListener('click', () => {
-                if (currentVideoIndex > 0) {
-                    currentVideoIndex--;
-                    displayVideo(currentVideoIndex);
-                }
+        function fetchPlaylistVideos(playlistId) {
+          fetch(
+            `https://www.googleapis.com/youtube/v3/playlists?key=${apiKey}&part=snippet&id=${playlistId}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.items && data.items.length > 0) {
+                let playlistName = data.items[0].snippet.title;
+                updatePlaylistName(playlistName);
+              }
             });
-    
-            // Complete button functionality
-            const completeButton = document.getElementById('complete');
-            completeButton.addEventListener('click', () => {
-                const checkboxId = videoIds[currentVideoIndex];
-                const checkbox = document.getElementById(checkboxId);
-                if (checkbox && !checkbox.checked) {
-                    checkbox.checked = true;
-                    checkbox.disabled = true;
-                }
+          fetch(
+            `https://www.googleapis.com/youtube/v3/playlistItems?key=${apiKey}&playlistId=${playlistId}&part=snippet&maxResults=50`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              totalVideos = data.items.length;
+              updateProgressBar();
+              const videoList = document.getElementById("video-list");
+              videoList.innerHTML = "";
 
-                completedVideos++;
-                if (currentVideoIndex < totalVideos - 1) {
-                    currentVideoIndex++;
-                    displayVideo(currentVideoIndex);
-                }
-                updateProgressBar();
+              videoIds = data.items.map(
+                (item) => item.snippet.resourceId.videoId
+              );
+
+              data.items.forEach((item) => {
+                const videoTitle = item.snippet.title;
+                const listItem = document.createElement("li");
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = item.snippet.resourceId.videoId;
+                checkbox.classList.add("mr-2");
+                checkbox.disabled = true;
+                listItem.appendChild(checkbox); // Append checkbox before setting text content
+                listItem.appendChild(document.createTextNode(videoTitle)); // Set text content after appending checkbox
+                listItem.classList.add(
+                  "cursor-pointer",
+                  "text-black",
+                  "hover:bg-gray-400",
+                  "text-md",
+                  "border",
+                  "py-2",
+                  "px-1",
+                  "bg-slate-100",
+                  "border-slate-200"
+                );
+                listItem.addEventListener("click", () => {
+                  const index = data.items.findIndex(
+                    (i) => i.snippet.title === videoTitle
+                  );
+                  displayVideo(index);
+                });
+                videoList.appendChild(listItem);
+              });
+
+              // Automatically play the first video after loading the playlist
+              if (totalVideos > 0) {
+                displayVideo(0);
+              }
+              if (data.nextPageToken) {
+                // Fetch the next page recursively
+                fetchPlaylistVideos(playlistId, data.nextPageToken);
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching playlist videos:", error);
             });
-    
-            // Function to update progress bar based on completed videos
-            function updateProgressBar() {
-            const progressBar = document.getElementById('progress-bar');
-            const progressBarbar = document.getElementById('progress-barbar');
-            const progressPercentage = Math.floor((completedVideos / totalVideos) * 100);
-            if (progressPercentage >= 100) {
-        // If progress is 100% or more, set width to 100%
-        progressBarbar.style.width = '100%';
-        progressBar.textContent = '100% Complete';
-        // Disable the complete button
-        document.getElementById('complete').disabled = true;
-    } else {
-            progressBarbar.style.width = `${progressPercentage}%`;
-            progressBar.textContent = `${progressPercentage}% Complete`;}
         }
-            // Set the playlist link dynamically (you can set this based on the course selected)
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const playlistLink = urlParams.get('playlist');
-            if (playlistLink) {
-                const sanitizedPlaylistLink = decodeURIComponent(playlistLink);
-                const regex = /list=([A-Za-z0-9_-]+)/;
-                const match = sanitizedPlaylistLink.match(regex);
-    
-                if (match && match[1]) {
-                    const playlistId = match[1];
-                    fetchPlaylistVideos(playlistId);
-                } else {
-                    alert('Invalid or unsupported YouTube playlist link.');
-                }
-            } else {
-                // Handle no playlist link provided
-                alert('No playlist link provided.');
-            }
-        });
-    </script>
-    
-    
-    <!-- JavaScript will go here -->
-</body>
 
+        var sidebar = document.getElementById("side_bar");
+
+        // Get the toggle button element
+        var toggleButton = document.getElementById("toggle");
+        var maindiv = document.getElementById("maindiv");
+        // Add a click event listener to the toggle button
+        function toggleSidebar() {
+          // Toggle the sidebar's visibility by adding or removing the 'hidden' class
+          sidebar.classList.toggle("hidden");
+          // Toggle the maindiv's width and background color
+          if (maindiv.style.width === "100vw") {
+            maindiv.style.width = "75%"; // Equivalent to lg:w-3/4
+            maindiv.style.maxWidth = "100%"; // Equivalent to md:w-2/4
+            maindiv.style.backgroundColor = "#E5E7EB"; // Equivalent to bg-gray-200
+            maindiv.style.height = "100vh"; // Equivalent to h-screen
+            maindiv.style.overflowY = "scroll";
+          } else {
+            maindiv.style.width = "100vw";
+            maindiv.style.backgroundColor = "#E5E7EB";
+            maindiv.style.height = "100vh";
+            maindiv.style.overflowY = "scroll";
+          }
+        }
+
+        // Add a click event listener to the toggle button, calling the toggleSidebar function
+        toggleButton.addEventListener("click", toggleSidebar);
+        function displayVideo(index) {
+          currentVideoIndex = index;
+          const videoFrame = document.getElementById("video-frame");
+          videoFrame.src = `https://www.youtube.com/embed/${videoIds[index]}?modestbranding=1&rel=0&autoplay=1`;
+        }
+
+        // Previous Video button functionality
+        const previousVideoButton = document.getElementById("previous-video");
+        previousVideoButton.addEventListener("click", () => {
+          if (currentVideoIndex > 0) {
+            currentVideoIndex--;
+            displayVideo(currentVideoIndex);
+          }
+        });
+
+        // Complete button functionality
+        const completeButton = document.getElementById("complete");
+        completeButton.addEventListener("click", () => {
+          const checkboxId = videoIds[currentVideoIndex];
+          const checkbox = document.getElementById(checkboxId);
+          if (checkbox && !checkbox.checked) {
+            checkbox.checked = true;
+            checkbox.disabled = true;
+          }
+
+          completedVideos++;
+          if (currentVideoIndex < totalVideos - 1) {
+            currentVideoIndex++;
+            displayVideo(currentVideoIndex);
+          }
+          updateProgressBar();
+        });
+
+        // Function to update progress bar based on completed videos
+        function updateProgressBar() {
+          const progressBar = document.getElementById("progress-bar");
+          const progressBarbar = document.getElementById("progress-barbar");
+          const progressPercentage = Math.floor(
+            (completedVideos / totalVideos) * 100
+          );
+          if (progressPercentage >= 100) {
+            // If progress is 100% or more, set width to 100%
+            progressBarbar.style.width = "100%";
+            progressBar.textContent = "100% Complete";
+            // Disable the complete button
+            document.getElementById("complete").disabled = true;
+          } else {
+            progressBarbar.style.width = `${progressPercentage}%`;
+            progressBar.textContent = `${progressPercentage}% Complete`;
+          }
+        }
+        // Set the playlist link dynamically (you can set this based on the course selected)
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const playlistLink = urlParams.get("playlist");
+        if (playlistLink) {
+          const sanitizedPlaylistLink = decodeURIComponent(playlistLink);
+          const regex = /list=([A-Za-z0-9_-]+)/;
+          const match = sanitizedPlaylistLink.match(regex);
+
+          if (match && match[1]) {
+            const playlistId = match[1];
+            fetchPlaylistVideos(playlistId);
+          } else {
+            alert("Invalid or unsupported YouTube playlist link.");
+          }
+        } else {
+          // Handle no playlist link provided
+          alert("No playlist link provided.");
+        }
+      });
+    </script>
+
+    <!-- JavaScript will go here -->
+  </body>
 </html>

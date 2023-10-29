@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./public/logo-removebg-preview.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="h-screen w-full">
+        <div class="h-[20%] w-full">
+          <img
+            src="./public/banner.png"
+            class="w-full object-cover h-full"
+            alt=""
+          />
+        </div>
+       
+        <div
+        class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
+        <!-- item start -->
+        <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+          <img draggable="false"
+            src="https://cybr.com/wp-content/uploads/2021/11/practice-exam-banner.jpg"
+            alt=""
+            onclick="redirectToCourse('https://youtube.com/playlist?list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&feature=shared')"
+          />
+          <h1 class="font-md py-2 text-center font-semibold">
+            Security + course - Professor Messor
+          </h1>
+        </div>
+          <!-- item start -->
+          <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+            <img draggable="false"
+              src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/25Jl6X5mQ6iALUtb931B"
+              alt=""
+              onclick="redirectToCourse('https://youtube.com/playlist?list=PLmpwJ2_QAbJXK3-cibr1RqmRbTPQ9OO2J&feature=shared')"
+            />
+            <h1 class="font-md py-2 text-center font-semibold">
+              Practical Ethical Hacking - TCM
+            </h1>
+          </div>
+          <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://www.analyticsinsight.net/wp-content/uploads/2022/03/How-to-Set-Up-a-Career-in-Ethical-Hacking-in-India-in-2022.jpg"
+          alt=""
+          onclick="redirectToCourse('https://www.youtube.com/watch?v=qJ9ZmkMvkcA&list=PLBf0hzazHTGOepimcP15eS6Y-aR4m6ql3&pp=iAQB')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+            Ethical Hacking - Hackersploit
+           
+        </h1>
+      </div>
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://blog.open-xchange.com/hubfs/Facebook-includes-third-party-apps-and-websites-to-bug-bounty-program-jpg.jpeg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLbyncTkpno5FaAbJJ7YHvMY9wtJ9fyqCH&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+            Bug Bounty Guide - InsiderPhD
+           
+        </h1>
+      </div>
+      
+      <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://c4.wallpaperflare.com/wallpaper/396/50/367/linux-command-lines-unix-bash-grey-hd-wallpaper-preview.jpg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+        Bash scripting Course - Hackersploit
+        </h1>
+      </div> 
+    </div>
+
+    <script>
+        function redirectToCourse(playlistLink) {
+            window.location.href = `edutube2.html?playlist=${encodeURIComponent(playlistLink)}`;
+        }
+    </script>
+</body>
+
+</html>

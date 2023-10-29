@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/logo-removebg-preview.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="h-screen w-full">
+        <div class="h-[20%] w-full">
+          <img
+            src="./public/banner.png"
+            class="w-full object-cover h-full"
+            alt=""
+          />
+        </div>
+        <!-- <div class="flex py-2 flex-row justify-center items-center">
+          <input
+            type="text"
+            id="search"
+            class="border focus:bg-blue-100 border-gray-400 bg-slate-200 py-1 px-2 outline-none"
+          />
+          <button
+          id="searchButton"
+          onclick="searchPlaylist();"
+            class="bg-gradient-to-br hover:from-yellow-400 hover:to-orange-500 from-yellow-300 to-orange-400 py-1 px-2"
+          >
+            Search
+          </button>
+        </div> -->
+        <div
+        class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
+        <!-- item start -->
+        <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+          <img draggable="false"
+            src="https://i.ytimg.com/vi/Hl7diL7SFw8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBQJP5d0TeqjV9xx0Tz9JiVaIqo_g"
+            alt=""
+            onclick="redirectToCourse('https://www.youtube.com/watch?v=Hl7diL7SFw8&list=PLpPqplz6dKxUaZ630TY1BFIo5nP-_x-nL&pp=iAQB')"
+          />
+          <h1 class="font-md py-2 text-center font-semibold">
+            Full Stack Development - pedroTech
+          </h1>
+        </div>
+          <!-- item start -->
+          <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+            <img draggable="false"
+              src="https://i.ytimg.com/vi/U2Wltnv-doo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCdaBPnSjRvJS5kuwkxLiaiYtYAhg"
+              alt=""
+              onclick="redirectToCourse('https://www.youtube.com/watch?v=U2Wltnv-doo&list=PLpPqplz6dKxW5ZfERUPoYTtNUNvrEebAR&pp=iAQB')"
+            />
+            <h1 class="font-md py-2 text-center font-semibold">
+              React Crash Course - pedroTech
+            </h1>
+          </div>
+          <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/6h649f2fB9Q/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBKt2MBs1wWUJD2-BUyHdrJwwhv2g"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PL0Zuz27SZ-6Pk-QJIdGd1tGZEzy9RTgtj&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+            Next JS Crash Course - Dave Gray
+           
+        </h1>
+      </div>
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/1jMJDbq7ZX4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBIEfihErIbeJSoNWaMD-c1CtH8mg"
+          alt=""
+          onclick="redirectToCourse('https://www.youtube.com/watch?v=1jMJDbq7ZX4&list=PLpPqplz6dKxW1LdiHpJMyC5bzuzGxKlFm&pp=iAQB')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+            TypeScript Crash Course - PedroTech
+           
+        </h1>
+      </div>
+     <!-- item start -->
+     <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/16bHGKe1QqY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC6AXaQOmw6Vzx4BmyN5oOPN0gkNw"
+          alt=""
+          onclick="redirectToCourse('https://www.youtube.com/watch?v=16bHGKe1QqY&list=PLpPqplz6dKxXICtNgHY1tiCPau_AwWAJU&pp=iAQB')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+         GraphQL Course - PedroTech
+        </h1>
+      </div> <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/jCY6DH8F4oc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBTpx1r1PW8X_5oTE1FdYRR-uSCaw"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLpPqplz6dKxUfvM22GXRvYA4s-mvJE0XF&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+          Firebase Crash Course - PedroTech
+        </h1>
+      </div> 
+      <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/LAUi8pPlcUM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAo14G3WMVJA3qGEZjHb7zxD0KxgQ"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLC3y8-rFHvwh8shCMHFA5kWxD9PaPwxaY&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+          Node JS Crash Course - Codevolution
+        </h1>
+      </div> 
+      <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/rZ41y93P2Qo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCO65vTW0qF8xZWfdKDyfnDNkN7PQ"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+            Java + DSA Course - Kunal Kushwaha
+        </h1>
+      </div> 
+      <!-- item start -->
+      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/BSVKUk58K6U/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDST7Pwc7l0nKwsf6Bj7EV-LBsNzw"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PL9gnSGHSqcno1G3XjUbwzXHL8_EttOuKk&feature=shared')"
+        />
+        <h1 class="font-md py-2 text-center font-semibold">
+          Object Oriented Programming (OOP) Course - Kunal Kushwaha
+        </h1>
+      </div> 
+    </div>
+
+    <script>
+        function redirectToCourse(playlistLink) {
+            window.location.href = `edutube2.html?playlist=${encodeURIComponent(playlistLink)}`;
+        }
+    </script>
+</body>
+
+</html>

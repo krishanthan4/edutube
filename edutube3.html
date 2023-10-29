@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Playlist Viewer</title>
+    <link
+      rel="shortcut icon"
+      href="./public/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Meta tags, title, external libraries, and stylesheets go here -->
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex w-screen overflow-hidden">
+        <!-- Sidebar and Video Frame go here -->
+        <div id="side_bar" class="hidden lg:inline-block lg:w-1/4 h-screen pb-1 overflow-y-scroll bg-white smooth-scroll">
+            <!-- Sidebar content goes here -->
+            <h2
+            class="text-lg text-center md:w-1/3 lg:w-1/4 absolute text-white font-semibold py-4 bg-black"
+            id="playlist-name"
+          ></h2>
+  
+          <!-- Progress bar -->
+          <div class="md:w-1/3 mt-[3.25rem] lg:w-1/4 absolute">
+            <!-- <h2 class="text-xl font-semibold mb-2">Progress</h2> -->
+            <div
+              id="progress-bar"
+              class="text-lg text-center w-full  py-2 bg-gray-200 text-black font-semibold uppercase"
+            ></div>
+            <div id="progress-barbar" class="bg-black h-3 mx-auto rounded-sm"></div>
+          </div>
+  
+          <!-- Sidebar to display video names -->
+          <ul id="video-list" class="space-y-2 mt-[7rem] px-1">
+            <!-- Video titles will be dynamically added here -->
+          </ul>
+        </div>
+
+        <div id="maindiv" class="lg:w-3/4 w-screen bg-white h-screen overflow-y-scroll">
+            <!-- Navbar for large screens -->
+            <nav id="nav" class="mb-1 py-2 lg:w-3/4 hidden z-20 absolute lg:flex flex-row justify-end bg-black">
+                <!-- Navbar buttons go here -->
+                <button
+                onclick="goToPreviousPage();"
+                class="nav-button"
+              >
+                🏡 Home
+              </button>
+            
+              <button
+                id="previous-video"
+                class="nav-button"
+              >
+                < Previous Lesson
+              </button>
+            
+              <button
+                id="complete"
+                class="nav-button"
+              >
+                Complete and Continue >
+              </button>
+            
+            </nav>
+
+            <!-- Navbar for small screens -->
+            <div class="mb-1 py-2 absolute lg:hidden w-screen z-20 flex flex-row justify-center bg-black">
+                <!-- Responsive navbar buttons go here -->
+                <button
+                onclick="goToPreviousPage();"
+                class="px-3 py-1 mr-10 border border-white rounded bg-transparent text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+              >
+                🏡
+              </button>
+            
+              <button
+                id="previous-video"
+                class="px-3 py-1 mr-10 border border-white rounded bg-transparent text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+              >
+              👈
+              </button>
+            
+              <button
+                id="complete"
+                class="px-3 py-1 mr-10 border border-white rounded bg-transparent text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+              >
+              👉
+              </button>
+            
+              <button
+                id="toggle"
+                class="px-3 py-1 mr-10 border border-white rounded bg-transparent text-white cursor-pointer transition duration-300 hover:bg-[#333] hover:text-black hover:bg-opacity-100"
+              >
+              🧩
+              </button>
+            </div>
+
+            <!-- Video Frame goes here -->
+            <div class="responsive-iframe-wrapper mt-14 p-4">
+                <iframe id="video-frame" class="w-full" frameborder="0"
+                    sandbox="allow-scripts allow-same-origin allow-top-navigation" allowfullscreen></iframe>
+            </div>
+
+            <!-- Button at the bottom of the page -->
+            <div class="flex justify-center w-full py-2">
+                <button id="complete" class="py-2 px-3 rounded-lg bg-black text-white hover:bg-gray-900">
+                    Complete and Continue >
+                </button>
+            </div>
+        </div>
+    </div>
+    <style>
+        .responsive-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .responsive-iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-button {
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    <!-- JavaScript file should be loaded at the end of the body -->
+    <script src="edutube3.js"></script>
+</body>
+
+</html>
