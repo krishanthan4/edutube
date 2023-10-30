@@ -9,74 +9,119 @@
 </head>
 
 <body class="bg-gray-100 h-screen flex items-center justify-center">
-    <div class="h-screen w-full">
-        <div class="h-[20%] w-full">
-          <img
-            src="./public/banner.png"
-            class="w-full object-cover h-full"
-            alt=""
-          />
-        </div>
-       
-        <div
-        class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
-        <!-- item start -->
-        <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
-          <img draggable="false"
-            src="https://cybr.com/wp-content/uploads/2021/11/practice-exam-banner.jpg"
-            alt=""
-            onclick="redirectToCourse('https://youtube.com/playlist?list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&feature=shared')"
-          />
-          <h1 class="font-md py-2 text-center font-semibold">
-            Security + course - Professor Messor
-          </h1>
-        </div>
+  <div class="h-screen w-full">
+      <div class="h-[20%] w-full">
+        <img
+          src="./public/banner.png"
+          class="w-full object-cover z-20 fixed h-[20%]"
+          alt=""
+        />
+      </div>
+      <div class="w-full flex justify-center gap-3 py-2">
+<a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
+<a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Developement</button></a>
+<a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
+      </div>
+      <div
+      class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
+      <!-- item start -->
+      <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+        <img draggable="false"
+          src="https://cybr.com/wp-content/uploads/2021/11/practice-exam-banner.jpg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8&feature=shared')"
+        />
+        <h1 class="font-md py-2 ps-3 font-semibold">
+          Security + course
+                </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+  <img src="https://pbs.twimg.com/profile_images/1641392982/20111029-professor-messer-400x400_400x400.png" class="rounded-full w-5 h-5" alt="">
+  <span class="font-thin font-sans">
+    Professor Messor
+  </span>
+</div>
+</div>
+      </div> 
           <!-- item start -->
-          <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
+          <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
             <img draggable="false"
               src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/25Jl6X5mQ6iALUtb931B"
               alt=""
               onclick="redirectToCourse('https://youtube.com/playlist?list=PLmpwJ2_QAbJXK3-cibr1RqmRbTPQ9OO2J&feature=shared')"
             />
-            <h1 class="font-md py-2 text-center font-semibold">
-              Practical Ethical Hacking - TCM
-            </h1>
-          </div>
-          <!-- item start -->
-      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
-        <img draggable="false"
-          src="https://www.analyticsinsight.net/wp-content/uploads/2022/03/How-to-Set-Up-a-Career-in-Ethical-Hacking-in-India-in-2022.jpg"
-          alt=""
-          onclick="redirectToCourse('https://www.youtube.com/watch?v=qJ9ZmkMvkcA&list=PLBf0hzazHTGOepimcP15eS6Y-aR4m6ql3&pp=iAQB')"
-        />
-        <h1 class="font-md py-2 text-center font-semibold">
-            Ethical Hacking - Hackersploit
-           
-        </h1>
-      </div>
-      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
-        <img draggable="false"
-          src="https://blog.open-xchange.com/hubfs/Facebook-includes-third-party-apps-and-websites-to-bug-bounty-program-jpg.jpeg"
-          alt=""
-          onclick="redirectToCourse('https://youtube.com/playlist?list=PLbyncTkpno5FaAbJJ7YHvMY9wtJ9fyqCH&feature=shared')"
-        />
-        <h1 class="font-md py-2 text-center font-semibold">
-            Bug Bounty Guide - InsiderPhD
-           
-        </h1>
-      </div>
-      
-      <!-- item start -->
-      <div class="p-4 hover:cursor-pointer rounded-md flex flex-col justify-center" onclick="">
-        <img draggable="false"
-          src="https://c4.wallpaperflare.com/wallpaper/396/50/367/linux-command-lines-unix-bash-grey-hd-wallpaper-preview.jpg"
-          alt=""
-          onclick="redirectToCourse('https://youtube.com/playlist?list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT&feature=shared')"
-        />
-        <h1 class="font-md py-2 text-center font-semibold">
-        Bash scripting Course - Hackersploit
-        </h1>
-      </div> 
+            <h1 class="font-md py-2 ps-3 font-semibold">
+              Practical Ethical Hacking
+                                </h1>
+    <div class="flex p-3 flex-row justify-between">
+    <div class="flex gap-1 flex-row items-center">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_cm7xAyEjWIQpw-3s1YmAJsfNucMv0ep_p2bHA_xbp0e4Fuf_f1nN0FGPtnBfbfn7w8&usqp=CAU" class="rounded-full w-5 h-5" alt="">
+      <span class="font-thin font-sans">
+TCM Security
+      </span>
+    </div>
+    </div>
+          </div> 
+           <!-- item start -->
+           <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+            <img draggable="false"
+              src="https://www.analyticsinsight.net/wp-content/uploads/2022/03/How-to-Set-Up-a-Career-in-Ethical-Hacking-in-India-in-2022.jpg"
+              alt=""
+              onclick="redirectToCourse('https://www.youtube.com/watch?v=qJ9ZmkMvkcA&list=PLBf0hzazHTGOepimcP15eS6Y-aR4m6ql3&pp=iAQB')"
+            />
+            <h1 class="font-md py-2 ps-3 font-semibold">
+              Ethical Hacking Bootcamp
+                                            </h1>
+    <div class="flex p-3 flex-row justify-between">
+    <div class="flex gap-1 flex-row items-center">
+      <img src="https://i0.wp.com/hackersploit.org/wp-content/uploads/2020/05/Favicon.png?fit=512%2C512&ssl=1" class="rounded-full w-5 h-5" alt="">
+      <span class="font-thin font-sans">
+HackerSploit 
+     </span>
+    </div>
+    </div>
+          </div> 
+ <!-- item start -->
+ <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+  <img draggable="false"
+    src="https://blog.open-xchange.com/hubfs/Facebook-includes-third-party-apps-and-websites-to-bug-bounty-program-jpg.jpeg"
+    alt=""
+    onclick="redirectToCourse('https://youtube.com/playlist?list=PLbyncTkpno5FaAbJJ7YHvMY9wtJ9fyqCH&feature=shared')"
+  />
+  <h1 class="font-md py-2 ps-3 font-semibold">
+    Bug Bounty Guide
+  </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+<img src="https://yt3.googleusercontent.com/Jm2TlTuY3k_DXizILpVSV6hIggz6S86ED6Qq-pGMnW-g1I76jesX5_0xyzu_UmHtpSZvIQVE=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
+<span class="font-thin font-sans">
+  InsiderPhD 
+</span>
+</div>
+</div>
+</div> 
+
+ <!-- item start -->
+ <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+  <img draggable="false"
+    src="https://c4.wallpaperflare.com/wallpaper/396/50/367/linux-command-lines-unix-bash-grey-hd-wallpaper-preview.jpg"
+    alt=""
+    onclick="redirectToCourse('https://youtube.com/playlist?list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT&feature=shared')"
+  />
+  <h1 class="font-md py-2 ps-3 font-semibold">
+    Bash scripting Course
+    </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+<img src="https://i0.wp.com/hackersploit.org/wp-content/uploads/2020/05/Favicon.png?fit=512%2C512&ssl=1" class="rounded-full w-5 h-5" alt="">
+<span class="font-thin font-sans">
+  Hackersploit
+ 
+</span>
+</div>
+</div>
+</div> 
+    
     </div>
 
     <script>

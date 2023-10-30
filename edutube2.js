@@ -94,13 +94,14 @@ document.addEventListener("DOMContentLoaded", function () {
               (i) => i.snippet.title === videoTitle
             );
             displayVideo2(index);
+            toggleImages2(false);
           });
           videoList2.appendChild(listItem);
         });
 
         // Automatically play the first video after loading the playlist
-        if (totalVideos > 0) {
-          displayVideo(0);
+        if (totalVideos2 > 0) {
+          displayVideo2(0);
         }
         if (data.nextPageToken) {
           // Fetch the next page recursively
@@ -165,19 +166,19 @@ document.addEventListener("DOMContentLoaded", function () {
     updateProgressBar2();
   });
   function toggleImages2(completed) {
-    const videoId = videoIds2[currentVideoIndex2];
-    const imageA = document.getElementById(`${videoId}-a`);
-    const imageB = document.getElementById(`${videoId}-b`);
+    const videoId2 = videoIds2[currentVideoIndex2];
+    const imageA2 = document.getElementById(`${videoId2}-a`);
+    const imageB2 = document.getElementById(`${videoId2}-b`);
 
-    if (imageA && imageB) {
+    if (imageA2 && imageB2) {
         if (completed) {
             // Hide image B and show image A to indicate completion status
-            imageB.style.display = "none";
-            imageA.style.display = "inline";
+            imageB2.style.display = "none";
+            imageA2.style.display = "inline";
         } else {
             // Show image B and hide image A in the default view
-            imageB.style.display = "inline";
-            imageA.style.display = "none";
+            imageB2.style.display = "inline";
+            imageA2.style.display = "none";
         }
     }
 }
