@@ -4,21 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edutube</title>
+  <link rel="shortcut icon" href="./public/logo-removebg-preview.png" type="image/x-icon">
+
  <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body
-    class="bg-cover bg-center bg-fixed"
-    style="
-      background-image: url('https://img.freepik.com/premium-photo/fantastic-computer-viruscomputer-security-breach-due-virus-attack_372999-9539.jpg');
-    "
-  >
-    <div
-      class="container mx-auto h-screen flex flex-col md:flex-row justify-center items-center"
-    >
+  <body class="bg-gray-100 h-screen flex items-center justify-center">
+  
+    <!-- offcanvas start -->
+    <div class="absolute hidden z-40" id="offcanvas">
+        <!-- Offcanvas menu -->
+        <div class="flex-none w-screen bg-white/70 h-screen overflow-y-scroll">
+          <div
+          id="side_bar2"
+          class="text-black w-full flex justify-center gap-3 flex-col h-full items-center"
+        >
+       
+            <a href="./index.html"><button class="py-1 px-3  border-b border-black">Home</button></a>
+            <a href="./dev.html"><button class="py-1 px-3  border-b border-black">Dev Essentials</button></a>
+            <a href="./web-dev.html"><button class="py-1 px-3  border-b border-black">Web Developement</button></a>
+            <a href="./hacker.html"><button class="py-1 px-3  border-b border-black">Cybersecurity</button></a>
+            <a href="./mobile-dev.html"><button class="py-1 px-3  border-b border-black">Mobile Development</button></a> 
+      
+       
+        </div>
+        </div>
+        <!-- Overlay -->
+        <div class=" absolute z-40 bg-black opacity-60" id="offcanvas-overlay"></div>
+      </div>
+      <!-- offcanvas end -->
+  
+  
+    <div class="h-screen w-full ">
+        <div class="h-[20%] w-full">
+          <img
+            src="./public/banner.png"
+            class="w-full object-cover z-20 fixed h-[20%]"
+            alt=""
+          />
+          <div class="flex md:hidden z-50 pe-3 pt-3 fixed justify-end w-full items-center">
+            <div  id="offcanvas-toggle" class="py-2 px-3 border hover:bg-orange-500/20 transition-transform border-black rounded-md cursor-pointer">
+                <img src="./public/svgs/solid/bars.svg" class="w-5" alt="">
+            </div>
+        </div>
+        </div>
+        <div class="w-full hidden md:flex justify-center gap-3 py-2">
+            <a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
+            <a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Dev Essentials</button></a>
+            <a href="./web-dev.html"><button class="py-1 px-3 rounded-md border border-black">Web Developement</button></a>
+            <a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
+            <a href="./mobile-dev.html"><button class="py-1 px-3 rounded-md border border-black">Mobile Development</button></a> 
+          </div>
+        
+          <div
+          class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
       <div
-        class="p-4 max-w-sm rounded-md border bg-black/50 hover:scale-110 hover:transition-transform cursor-pointer"
-        onclick="goTo('dev.html');"
+        class="p-4 max-w-sm rounded-md border bg-black/20 hover:scale-110 hover:transition-transform cursor-pointer"
+        onclick="goTo('web-dev.html');"
       >
         <img
         draggable="false"
@@ -26,12 +68,12 @@
           alt=""
           class="w-full h-48 object-cover rounded-t-md"
         />
-        <h1 class="text-lg py-2 text-white text-center font-semibold">
-          Software Development
+        <h1 class="text-lg py-2 text-black text-center font-semibold">
+          Web Development
         </h1>
       </div>
       <div
-        class="p-4 max-w-sm rounded-md bg-black/50 hover:scale-110 hover:transition-transform border cursor-pointer ml-4"
+        class="p-4 max-w-sm rounded-md bg-black/20 hover:scale-110 hover:transition-transform border cursor-pointer ml-4"
         onclick="goTo('hacker.html');"
       >
         <img
@@ -41,13 +83,27 @@
           alt=""
           class="w-full h-48 object-cover rounded-t-md"
         />
-        <h1 class="text-lg py-2 text-center text-white font-semibold">
+        <h1 class="text-lg py-2 text-center text-black font-semibold">
           Cybersecurity
         </h1>
       </div>
+      <div
+      class="p-4 max-w-sm rounded-md bg-black/20 hover:scale-110 hover:transition-transform border cursor-pointer ml-4"
+      onclick="goTo('mobile-dev.html');"
+    >
+      <img
+      draggable="false"
 
+        src="https://techrushi.com/wp-content/uploads/2023/01/Ai-Art-Generator-Wallpapers.jpg"
+        alt=""
+        class="w-full h-48 object-cover rounded-t-md"
+      />
+      <h1 class="text-lg py-2 text-center text-black font-semibold">
+        Mobile Development
+      </h1>
     </div>
-    <div class=" hidden mt-[-4rem] md:flex flex-row w-full justify-center text-white font-semibold uppercase tracking-[2px] text-2xl">
+    </div>
+    <div class="text-center text-2xl">
       Learn Anything For Completely Free
     </div>
     <script>
@@ -55,5 +111,7 @@
         window.location.href = location;
       }
     </script>
+    <script src="index.js"></script>
+
   </body>
 </html>

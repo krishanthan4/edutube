@@ -9,19 +9,52 @@
 </head>
 
 <body class="bg-gray-100 h-screen flex items-center justify-center">
-  <div class="h-screen w-full">
+  
+  <!-- offcanvas start -->
+  <div class="absolute hidden z-40" id="offcanvas">
+      <!-- Offcanvas menu -->
+      <div class="flex-none w-screen bg-white/70 h-screen overflow-y-scroll">
+        <div
+        id="side_bar2"
+        class="text-black w-full flex justify-center gap-3 flex-col h-full items-center"
+      >
+     
+          <a href="./index.html"><button class="py-1 px-3  border-b border-black">Home</button></a>
+          <a href="./dev.html"><button class="py-1 px-3  border-b border-black">Dev Essentials</button></a>
+          <a href="./web-dev.html"><button class="py-1 px-3  border-b border-black">Web Developement</button></a>
+          <a href="./hacker.html"><button class="py-1 px-3  border-b border-black">Cybersecurity</button></a>
+          <a href="./mobile-dev.html"><button class="py-1 px-3  border-b border-black">Mobile Development</button></a> 
+    
+     
+      </div>
+      </div>
+      <!-- Overlay -->
+      <div class=" absolute z-40 bg-black opacity-60" id="offcanvas-overlay"></div>
+    </div>
+    <!-- offcanvas end -->
+
+
+  <div class="h-screen w-full ">
       <div class="h-[20%] w-full">
         <img
           src="./public/banner.png"
           class="w-full object-cover z-20 fixed h-[20%]"
           alt=""
         />
+        <div class="flex md:hidden z-50 pe-3 pt-3 fixed justify-end w-full items-center">
+          <div  id="offcanvas-toggle" class="py-2 px-3 border hover:bg-orange-500/20 transition-transform border-black rounded-md cursor-pointer">
+              <img src="./public/svgs/solid/bars.svg" class="w-5" alt="">
+          </div>
       </div>
-      <div class="w-full flex justify-center gap-3 py-2">
-<a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
-<a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Developement</button></a>
-<a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
       </div>
+      <div class="w-full hidden md:flex justify-center gap-3 py-2">
+          <a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
+          <a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Dev Essentials</button></a>
+          <a href="./web-dev.html"><button class="py-1 px-3 rounded-md border border-black">Web Developement</button></a>
+          <a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
+          <a href="./mobile-dev.html"><button class="py-1 px-3 rounded-md border border-black">Mobile Development</button></a> 
+        </div>
+      
       <div
       class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
       <!-- item start -->
@@ -129,6 +162,8 @@ HackerSploit
             window.location.href = `edutube2.html?playlist=${encodeURIComponent(playlistLink)}`;
         }
     </script>
+    <script src="index.js"></script>
+
 </body>
 
 </html>

@@ -103,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (totalVideos2 > 0) {
           displayVideo2(0);
         }
-        if (data.nextPageToken) {
-          // Fetch the next page recursively
-          fetchPlaylistVideos2(playlistId, data.nextPageToken);
-        }
+        // if (data.nextPageToken) {
+        //   // Fetch the next page recursively
+        //   fetchPlaylistVideos2(playlistId, data.nextPageToken);
+        // }
       })
       .catch((error) => {
         console.error("Error fetching playlist videos:", error);

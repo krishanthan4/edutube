@@ -4,192 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Essentials</title>
     <link rel="shortcut icon" href="./public/logo-removebg-preview.png" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 h-screen flex items-center justify-center">
-    <div class="h-screen w-full">
-        <div class="h-[20%] w-full">
-          <img
-            src="./public/banner.png"
-            class="w-full object-cover z-20 fixed h-[20%]"
-            alt=""
-          />
+  
+  <!-- offcanvas start -->
+  <div class="absolute hidden z-40" id="offcanvas">
+      <!-- Offcanvas menu -->
+      <div class="flex-none w-screen bg-white/70 h-screen overflow-y-scroll">
+        <div
+        id="side_bar2"
+        class="text-black w-full flex justify-center gap-3 flex-col h-full items-center"
+      >
+     
+          <a href="./index.html"><button class="py-1 px-3  border-b border-black">Home</button></a>
+          <a href="./dev.html"><button class="py-1 px-3  border-b border-black">Dev Essentials</button></a>
+          <a href="./web-dev.html"><button class="py-1 px-3  border-b border-black">Web Developement</button></a>
+          <a href="./hacker.html"><button class="py-1 px-3  border-b border-black">Cybersecurity</button></a>
+          <a href="./mobile-dev.html"><button class="py-1 px-3  border-b border-black">Mobile Development</button></a> 
+    
+     
+      </div>
+      </div>
+      <!-- Overlay -->
+      <div class=" absolute z-40 bg-black opacity-60" id="offcanvas-overlay"></div>
+    </div>
+    <!-- offcanvas end -->
+
+
+  <div class="h-screen w-full ">
+      <div class="h-[20%] w-full">
+        <img
+          src="./public/banner.png"
+          class="w-full object-cover z-20 fixed h-[20%]"
+          alt=""
+        />
+        <div class="flex md:hidden z-50 pe-3 pt-3 fixed justify-end w-full items-center">
+          <div  id="offcanvas-toggle" class="py-2 px-3 border hover:bg-orange-500/20 transition-transform border-black rounded-md cursor-pointer">
+              <img src="./public/svgs/solid/bars.svg" class="w-5" alt="">
+          </div>
+      </div>
+      </div>
+      <div class="w-full hidden md:flex justify-center gap-3 py-2">
+          <a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
+          <a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Dev Essentials</button></a>
+          <a href="./web-dev.html"><button class="py-1 px-3 rounded-md border border-black">Web Developement</button></a>
+          <a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
+          <a href="./mobile-dev.html"><button class="py-1 px-3 rounded-md border border-black">Mobile Development</button></a> 
         </div>
-        <div class="w-full flex justify-center gap-3 py-2">
-<a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
-<a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Developement</button></a>
-<a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
-        </div>
+      
         <div
         class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
-        <!-- item start -->
-        <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-          <img draggable="false"
-            src="https://i.ytimg.com/vi/Hl7diL7SFw8/maxresdefault.jpg"
-            alt=""
-            onclick="redirectToCourse('https://www.youtube.com/watch?v=Hl7diL7SFw8&list=PLpPqplz6dKxUaZ630TY1BFIo5nP-_x-nL&pp=iAQB')"
-          />
-          <h1 class="font-md py-2 ps-3 font-semibold">
-            Full Stack Development
-          </h1>
-<div class="flex p-3 flex-row justify-between">
-  <div class="flex gap-1 flex-row items-center">
-    <img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-    <span class="font-thin font-sans">
-      pedroTech
-    </span>
-  </div>
-</div>
-        </div>
-          <!-- item start -->
-
-            <!-- item start -->
-        <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-          <img draggable="false"
-            src="https://i.ytimg.com/vi/U2Wltnv-doo/maxresdefault.jpg"
-            alt=""
-            onclick="redirectToCourse('https://www.youtube.com/watch?v=U2Wltnv-doo&list=PLpPqplz6dKxW5ZfERUPoYTtNUNvrEebAR&pp=iAQB')"
-          />
-          <h1 class="font-md py-2 ps-3 font-semibold">
-            React Crash Course
-          </h1>
-<div class="flex p-3 flex-row justify-between">
-  <div class="flex gap-1 flex-row items-center">
-    <img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-    <span class="font-thin font-sans">
-      pedroTech
-    </span>
-  </div>
-
-</div>
-        </div>
-
-                   <!-- item start -->
-                   <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-                    <img draggable="false"
-                      src="https://i.ytimg.com/vi/6h649f2fB9Q/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDxvj9e9oYbWMeDqaFlw-bxEk00hg"
-                      alt=""
-                      onclick="redirectToCourse('https://youtube.com/playlist?list=PL0Zuz27SZ-6Pk-QJIdGd1tGZEzy9RTgtj&feature=shared')"
-                    />
-                    <h1 class="font-md py-2 ps-3 font-semibold">
-                      Next JS Crash Course
-                    </h1>
-          <div class="flex p-3 flex-row justify-between">
-            <div class="flex gap-1 flex-row items-center">
-              <img src="https://yt3.googleusercontent.com/ytc/APkrFKbomBRskUR7osDU6YDFZsTesDC_kRsc1IVyhFcGBw=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-              <span class="font-thin font-sans">
-                Dave Gray
-              </span>
-            </div>
-          
-          </div>
-                  </div>
-   
-                        <!-- item start -->
-                        <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-                          <img draggable="false"
-                            src="https://i.ytimg.com/vi/1jMJDbq7ZX4/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAd2Cz86GLhYWsmoc3SLmnKmziugQ"
-                            alt=""
-                            onclick="redirectToCourse('https://www.youtube.com/watch?v=1jMJDbq7ZX4&list=PLpPqplz6dKxW1LdiHpJMyC5bzuzGxKlFm&pp=iAQB')"
-                          />
-                          <h1 class="font-md py-2 ps-3 font-semibold">
-                            TypeScript Crash Course
-                                                    </h1>
-                <div class="flex p-3 flex-row justify-between">
-                  <div class="flex gap-1 flex-row items-center">
-                    <img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-                    <span class="font-thin font-sans">
-                      PedroTech
-                                        </span>
-                  </div>
-                
-                </div>
-                        </div>
-    <!-- item start -->
-    <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-      <img draggable="false"
-        src="https://i.ytimg.com/vi/hKQ3XQYTmx4/maxresdefault.jpg"
-        alt=""
-        onclick="redirectToCourse('https://www.youtube.com/watch?v=16bHGKe1QqY&list=PLpPqplz6dKxXICtNgHY1tiCPau_AwWAJU&pp=iAQB')"
-      />
-      <h1 class="font-md py-2 ps-3 font-semibold">
-        GraphQL Course
-                                      </h1>
-<div class="flex p-3 flex-row justify-between">
-<div class="flex gap-1 flex-row items-center">
-<img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-<span class="font-thin font-sans">
-  PedroTech
-                    </span>
-</div>
-
-</div>
-    </div>
-    
-
-           <!-- item start -->
-           <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-            <img draggable="false"
-              src="https://i.ytimg.com/vi/2hR-uWjBAgw/maxresdefault.jpg"
-              alt=""
-              onclick="redirectToCourse('https://youtube.com/playlist?list=PLpPqplz6dKxUfvM22GXRvYA4s-mvJE0XF&feature=shared')"
-            />
-            <h1 class="font-md py-2 ps-3 font-semibold">
-              Firebase Crash Course
-            
-            </h1>
-      <div class="flex p-3 flex-row justify-between">
-      <div class="flex gap-1 flex-row items-center">
-      <img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-      <span class="font-thin font-sans">
-        PedroTech
-                          </span>
-      </div>
-      
-      </div>
-          </div>
-             <!-- item start -->
-             <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-              <img draggable="false"
-                src="https://i.ytimg.com/vi/k68j9xlbHHk/maxresdefault.jpg"
-                alt=""
-                onclick="redirectToCourse('https://youtube.com/playlist?list=PLmpwJ2_QAbJUmsBvB1XG07LgEt8As2f5a&feature=shared')"
-              />
-              <h1 class="font-md py-2 ps-3 font-semibold">
-                Redux Course
-              
-              </h1>
-        <div class="flex p-3 flex-row justify-between">
-        <div class="flex gap-1 flex-row items-center">
-        <img src="https://yt3.googleusercontent.com/tLOaVyDRQq46qga99PFlP9b3PRcni8gBJepNOecsgIdADpxU10p6w0VD-fZ8VvtqeldN6IHYOj0=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
-        <span class="font-thin font-sans">
-          PedroTech
-                            </span>
-        </div>
-        
-        </div>
-            </div>
-                 <!-- item start -->
-                 <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
-                  <img draggable="false"
-                    src="https://i.ytimg.com/vi/LAUi8pPlcUM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAo14G3WMVJA3qGEZjHb7zxD0KxgQ"
-                    alt=""
-                    onclick="redirectToCourse('https://youtube.com/playlist?list=PLC3y8-rFHvwh8shCMHFA5kWxD9PaPwxaY&feature=shared')"
-                  />
-                  <h1 class="font-md py-2 ps-3 font-semibold">
-                    Node JS Crash Course                   
-                  </h1>
-            <div class="flex p-3 flex-row justify-between">
-            <div class="flex gap-1 flex-row items-center">
-            <img src="https://pbs.twimg.com/profile_images/1525037434962321409/UJnneSkR_400x400.jpg" class="rounded-full w-5 h-5" alt="">
-            <span class="font-thin font-sans">
-              Codevolution
-            </span>
-            </div>            
-            </div>
-                </div>
+     
   <!-- item start -->
   <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
     <img draggable="false"
@@ -254,6 +123,8 @@
             window.location.href = `edutube2.html?playlist=${encodeURIComponent(playlistLink)}`;
         }
     </script>
+    <script src="index.js"></script>
+
 </body>
 
 </html>

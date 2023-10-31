@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/logo-removebg-preview.png" type="image/x-icon">
+    <title>Mobile Development</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  
+    <!-- offcanvas start -->
+    <div class="absolute hidden z-40" id="offcanvas">
+        <!-- Offcanvas menu -->
+        <div class="flex-none w-screen bg-white/70 h-screen overflow-y-scroll">
+          <div
+          id="side_bar2"
+          class="text-black w-full flex justify-center gap-3 flex-col h-full items-center"
+        >
+       
+            <a href="./index.html"><button class="py-1 px-3  border-b border-black">Home</button></a>
+            <a href="./dev.html"><button class="py-1 px-3  border-b border-black">Dev Essentials</button></a>
+            <a href="./web-dev.html"><button class="py-1 px-3  border-b border-black">Web Developement</button></a>
+            <a href="./hacker.html"><button class="py-1 px-3  border-b border-black">Cybersecurity</button></a>
+            <a href="./mobile-dev.html"><button class="py-1 px-3  border-b border-black">Mobile Development</button></a> 
+      
+       
+        </div>
+        </div>
+        <!-- Overlay -->
+        <div class=" absolute z-40 bg-black opacity-60" id="offcanvas-overlay"></div>
+      </div>
+      <!-- offcanvas end -->
+
+
+    <div class="h-screen w-full ">
+        <div class="h-[20%] w-full">
+          <img
+            src="./public/banner.png"
+            class="w-full object-cover z-20 fixed h-[20%]"
+            alt=""
+          />
+          <div class="flex md:hidden z-50 pe-3 pt-3 fixed justify-end w-full items-center">
+            <div  id="offcanvas-toggle" class="py-2 px-3 border hover:bg-orange-500/20 transition-transform border-black rounded-md cursor-pointer">
+                <img src="./public/svgs/solid/bars.svg" class="w-5" alt="">
+            </div>
+        </div>
+        </div>
+        <div class="w-full hidden md:flex justify-center gap-3 py-2">
+            <a href="./index.html"><button class="py-1 px-3 rounded-md border border-black">Home</button></a>
+            <a href="./dev.html"><button class="py-1 px-3 rounded-md border border-black">Dev Essentials</button></a>
+            <a href="./web-dev.html"><button class="py-1 px-3 rounded-md border border-black">Web Developement</button></a>
+            <a href="./hacker.html"><button class="py-1 px-3 rounded-md border border-black">Cybersecurity</button></a>
+            <a href="./mobile-dev.html"><button class="py-1 px-3 rounded-md border border-black">Mobile Development</button></a> 
+          </div>
+        
+        
+        <div
+        class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 p-5 bg-slate-100 gap-3 justify-evenly">
+      
+      
+    <!-- item start -->
+    <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/kGtEax1WQFg/maxresdefault.jpg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c&feature=shared')"
+        />
+        <h1 class="font-md py-2 ps-3 font-semibold">
+          React Native Mastery (1)
+        </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+  <img src="https://yt3.googleusercontent.com/ytc/APkrFKaPBdYd5XqCfgtA93cq_BVWzve4wpGmBf4EcH0XsA=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
+  <span class="font-thin font-sans">
+    Hitesh Choudhary
+
+  </span>
+</div>
+</div>
+      </div>
+         <!-- item start -->
+    <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/kGtEax1WQFg/maxresdefault.jpg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLmpwJ2_QAbJWv4C-2KJDoyHgLGbS9_t_S&feature=shared')"
+        />
+        <h1 class="font-md py-2 ps-3 font-semibold">
+          React Native Mastery (2)
+        </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+  <img src="https://yt3.googleusercontent.com/ytc/APkrFKaPBdYd5XqCfgtA93cq_BVWzve4wpGmBf4EcH0XsA=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
+  <span class="font-thin font-sans">
+    Hitesh Choudhary
+
+  </span>
+</div>
+</div>
+      </div>
+        <!-- item start -->
+    <div class="hover:cursor-pointer hover:scale-105 transition-transform border border-black  rounded-md flex flex-col justify-start " onclick="">
+        <img draggable="false"
+          src="https://i.ytimg.com/vi/bvn_HYpix6s/maxresdefault.jpg"
+          alt=""
+          onclick="redirectToCourse('https://youtube.com/playlist?list=PLmpwJ2_QAbJUkwSx4_qrZbNgIKXPgIzkU&feature=shared')"
+        />
+        <h1 class="font-md py-2 ps-3 font-semibold">
+          React Native Practical
+        </h1>
+<div class="flex p-3 flex-row justify-between">
+<div class="flex gap-1 flex-row items-center">
+  <img src="https://yt3.googleusercontent.com/FjeN785fVWx0Pr6xCbwPhhq8hHj_gocc3FygDXYDEQgp2gE_FQzRNsFHFAjQ3oE-VJaeGR1a=s900-c-k-c0x00ffffff-no-rj" class="rounded-full w-5 h-5" alt="">
+  <span class="font-thin font-sans">
+Sonny Sangha
+  </span>
+</div>
+</div>
+      </div>
+
+    </div>
+
+    <script>
+        function redirectToCourse(playlistLink) {
+            window.location.href = `edutube2.html?playlist=${encodeURIComponent(playlistLink)}`;
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>

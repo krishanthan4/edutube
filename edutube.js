@@ -105,10 +105,10 @@ imageA.style.display="none";
           if (totalVideos > 0) {
             displayVideo(0);
           }
-          if (data.nextPageToken) {
-            // Fetch the next page recursively
-            fetchPlaylistVideos(playlistId, data.nextPageToken);
-          }
+          // if (data.nextPageToken) {
+          //   // Fetch the next page recursively
+          //   fetchPlaylistVideos(playlistId, data.nextPageToken);
+          // }
         })
         .catch((error) => {
           console.error("Error fetching playlist videos:", error);
